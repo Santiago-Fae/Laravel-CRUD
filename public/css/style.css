@@ -1,0 +1,124 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	max-width: 100%;
+	padding: 0;
+	margin: 0 auto !important;
+	overflow-x: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top:50px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.container {
+    width: 90%;
+}
+
+.icon {
+    width: 30px;
+}
+
+.msgTrue {
+    margin: 25px 0 0;
+    font-size: 20px;
+    color: #32d932;
+    font-weight: bolder;
+
+}
+.msgFalse {
+    margin: 25px 0 0;
+    font-size: 20px;
+    color: red;
+    font-weight: bolder;
+
+}
+
+.btn {
+    margin-top: 30px;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #cfcfcf;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+    cursor: pointer;
+   }
+   
+.btnAdd {
+    margin-top: 30px;
+    color: #090909;
+    padding: 0.7em 1em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #50eb50;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+                cursor: pointer;
+
+   }
+
+.btnBack {
+    margin-top: 30px;
+    color: #090909;
+    padding: 0.7em 1em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #5779f3;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+   }
+   
+   .btn:hover {
+    border: 1px solid white;
+   }
+   
+   .inp {
+    padding: 4px;
+    width: 200px;
+    border: 1px solid;
+    margin: 10px;
+   }
+
+   .formEdit {
+    text-align: center;
+   }
+
+   .control {
+       display: flex;
+   }
