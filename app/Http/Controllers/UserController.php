@@ -12,7 +12,9 @@ class UserController extends Controller
     //filtra todos usuários
     public function index() {
 
-        $listUsers = User::all();
+        $listUsers = DB::table('users')
+        ->get()
+        ->where('exl', 0);
 
         return view('index', ['usuarios' => $listUsers]);
 
@@ -57,22 +59,29 @@ class UserController extends Controller
         
     }
 
-    //deleta usuário
+    //deleta usuário lógicamente
     public function destroy($id) {
-    /*  $user = User::findOrFail($id);      
+      $user = User::findOrFail($id);      
         $user->exl = 1;
         $user->save();
-    */
-        User::findOrFail($id)->delete();
+        
+        //User::findOrFail($id)->delete();
         return redirect('/')->with('msgTrue', "Usuário apagado com sucesso!");
     }
 
     //atualiza
     public function update($request) {
+        
+        //TODO: Verificar porquê não salva alterações de contato utilizando o metodo comentado abaixo.
+        //$user = User::findOrFail(intval($request->id))->update($request->all());   
 
-        $user = User::findOrFail(intval($request->id))->update($request->all());   
+        $user = User::findOrFail(intval($request->id));
+        $user->name = $request->name;   
+        $user->email = $request->email;   
+        $user->contact = $request->contact;   
+        $user->save();
 
-        return redirect('/')->with('msgTrue', "Usuário cadastrado com sucesso!");
+        return redirect('/')->with('msgTrue', "Alterações do usuário salvas!");
 
     }
 
@@ -81,7 +90,7 @@ class UserController extends Controller
         //verifica se todos campos foram preenchidos
         if ($name && $email && $contact) {
             //verifica se já existem valores na tabela
-            if (!DB::table('users')->where('email', $email)->count() && !DB::table('users')->where('contact', $contact)->count()) {
+            if (!DB::table('users')->where('email', $email)->where('exl', 0)->count() && !DB::table('users')->where('contact', $contact)->where('exl', 0)->count()) {
                 //expressão regular para filtrar apenas números e verificar se tem apenas 9
                 if (strlen(preg_replace("/[^0-9]/", "", $contact)) == 9) {
                     //verifica se nome tem mais de 5 letras

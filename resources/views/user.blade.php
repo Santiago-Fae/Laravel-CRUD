@@ -1,11 +1,12 @@
 @extends('layouts.main')
 @section('title', 'Cadastro de usuário')
 @section('content')
+
 <?php 
  $user = !empty($user) ? $user : false;
  ?>
 <h1><?php echo $user ? "Alteração de usuário" : "Cadastro de usuário"; ?></h1>
-<form action="/larave/project/public/users<?php echo $user ? ('/' . $user->id) : ''; ?>" method="POST">
+<form action="/users<?php echo $user ? ('/' . $user->id) : ''; ?>" method="POST">
     @csrf
     @method('POST')
     <div class="formEdit">
@@ -37,7 +38,7 @@
     <p class="msgFalse">{{session('msgFalse')}}</p>
 @endif
 <div>
-<a href="/larave/project/public/">
+<a href="/">
     <button class="btnBack">
         Voltar
     </button>

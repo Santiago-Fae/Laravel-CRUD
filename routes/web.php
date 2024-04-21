@@ -20,7 +20,7 @@ Route::get('/',  [UserController::class, 'index']);
 //Pagina de edição/cadastro ( com ou sem ID respectivamente)
 Route::get('/user/{id?}', [UserController::class, 'read']);
 
-//inlcusao ou alteraçãodo usuário
+//inlcusao ou alteração do usuário
 Route::post('/users/{id?}', [UserController::class, 'store']);
 
 //exclusão de um usuário
